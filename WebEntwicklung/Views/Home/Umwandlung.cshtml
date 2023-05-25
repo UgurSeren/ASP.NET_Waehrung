@@ -1,0 +1,65 @@
+﻿@model WebEntwicklung.Models.Betrag
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Umwandlung</title>
+</head>
+<body>
+    <div>
+        <h1>Umrechnung,für @Model?.betrag Euro</h1>
+        @{
+            ZSK.Umwandlung(Model);
+        }
+        <form asp-action="RsvpForm" method="post" class="m-2">
+        <div class="form-group">
+            <label asp-for="@ZSK.k" class="form-label">Anzahl der Kuhl:         </label>
+            <input asp-for="@ZSK.k" class="form-control" />
+            @for (int i = 0; i < ZSK.k; i++)
+            {
+                    <img class="text-center" src="~/css/kuh.jpg" width="150" height="100" />
+            }
+        
+             <br/>
+            <br />
+            <br />
+
+            </div>
+        <div class="form-group">
+            <label asp-for="@ZSK.s" class="form-label">Anzahl der Schaf:        </label>
+            <input asp-for="@ZSK.s" class="form-control" />
+                @for (int i = 0; i < ZSK.s; i++)
+                {
+                    <img class="text-center" src="~/css/schaf.png" width="150" height="100" />
+                }
+
+                <br />
+                <br />
+                <br />
+        </div>
+        <div class="form-group">
+            <label asp-for="@ZSK.z" class="form-label">Anzahl der Ziege:        </label>
+            <input asp-for="@ZSK.z" class="form-control" />
+                @for (int i = 0; i < ZSK.z; i++)
+                {
+                    <img class="text-center" src="~/css/ziege.webp" width="150" height="100" />
+                }
+
+                <br />
+                <br />
+                <br />
+        </div>
+        <div class="form-group">
+            <label asp-for="@ZSK.kz" class="form-label">Anzahl der kleinen Ziege:</label>
+            <input asp-for="@ZSK.kz" class="form-control" />
+        </div>
+        </form>
+         
+         
+    </div>
+    
+</body>
+</html>
